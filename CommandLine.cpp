@@ -14,7 +14,7 @@
 CommandLine::CommandLine(int argc, char **argv) {
 
     // Check number of arguments
-    if (argc < 10) {
+    if (argc < 5) {
 //        cout << "Wrong command line" << endl;
         commandOk = false;
         return;
@@ -26,11 +26,11 @@ CommandLine::CommandLine(int argc, char **argv) {
     instancesNames = string(argv[2]);
     solutionPath = string(argv[3]);
     seed = stoi(argv[4]);
-    populationSize = (unsigned int) stoi(argv[5]);
-    maxPopulationSize = (unsigned int) stoi(argv[6]);
-    numberElite = (unsigned int) stoi(argv[7]);
-    numberCloseIndividuals = (unsigned int) stoi(argv[8]);
-    maxDiversify = (unsigned int) stoi(argv[9]);
+//    populationSize = (unsigned int) stoi(argv[5]);
+//    maxPopulationSize = (unsigned int) stoi(argv[6]);
+//    numberElite = (unsigned int) stoi(argv[7]);
+//    numberCloseIndividuals = (unsigned int) stoi(argv[8]);
+//    maxDiversify = (unsigned int) stoi(argv[9]);
 
 //    runs = (unsigned int)stoi(argv[10]);
 //    if (runs <= 0) {

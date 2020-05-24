@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
     double bestCost;
     double averageCost, averageTime;
 
-    unsigned int runs = 10;
+    unsigned int runs = 1;
     Parameters *parameters;
     Population *population;
     clock_t nb_ticks_allowed;
@@ -45,22 +45,22 @@ int main(int argc, char* argv[]) {
 
         double cost, totalAvgCost = 0, totalBestCost = 0;
         double totalTime = 0;
-        double totalImprovPrim = 0, totalImprovSec = 0;
+//        double totalImprovPrim = 0, totalImprovSec = 0;
 
         ofstream outputFile;
 
         // Run algorithm for every file in the set of instances
         for (const string &item : parameters->files) {
-            const clock_t totalStartTime = clock();
-            bestCost = numeric_limits<double>::infinity();
-            averageCost = 0;
-            averageTime = 0;
-            parameters->improvesPrimary = 0;
-            parameters->improvesSecondary = 0;
+//            const clock_t totalStartTime = clock();
+//            bestCost = numeric_limits<double>::infinity();
+//            averageCost = 0;
+//            averageTime = 0;
+//            parameters->improvesPrimary = 0;
+//            parameters->improvesSecondary = 0;
 
             // Run the algorithm on the same file a number of 'runs' times
             // to generate average results
-            for (unsigned int i = 0; i < runs; i++) {
+//            for (unsigned int i = 0; i < runs; i++) {
                 const clock_t startTime = clock();
                 parameters->terminate = false;
                 parameters->readFile(item);
@@ -75,44 +75,45 @@ int main(int argc, char* argv[]) {
                 solver.evolve(min(parameters->numJobs * 20, 1000));
 
                 cost = population->getBestIndividual()->solutionCost.evaluation;
-                averageTime += (float(clock() - startTime) / CLOCKS_PER_SEC);
+                totalTime = (float(clock() - startTime) / CLOCKS_PER_SEC);
                 delete population;
 
-                averageCost += cost;
-                if (cost < bestCost) {
-                    bestCost = cost;
-                }
-            }
-            averageCost /= runs;
-            averageTime /= runs;
+                // Write result to solution file
+                outputFile.open(parameters->solutionPath, ofstream::out | ofstream::app);
+                outputFile << cost << ","  << totalTime << endl;
+                outputFile.close();
 
-            totalAvgCost += averageCost;
-            totalBestCost += bestCost;
-            totalTime += averageTime;
+//                averageCost += cost;
+//                if (cost < bestCost) {
+//                    bestCost = cost;
+//                }
+//            }
+//            averageCost /= runs;
+//            averageTime /= runs;
 
-            parameters->improvesPrimary /= runs;
-            parameters->improvesSecondary /= runs;
+//            totalAvgCost += averageCost;
+//            totalBestCost += bestCost;
+//            totalTime += averageTime;
 
-            totalImprovPrim += parameters->improvesPrimary;
-            totalImprovSec += parameters->improvesSecondary;
+//            parameters->improvesPrimary /= runs;
+//            parameters->improvesSecondary /= runs;
 
-            // Write result to solution file
-            outputFile.open(parameters->solutionPath, ofstream::out | ofstream::app);
-            outputFile << bestCost << ","  << averageCost << "," << averageTime << endl;
-            outputFile.close();
+//            totalImprovPrim += parameters->improvesPrimary;
+//            totalImprovSec += parameters->improvesSecondary;
+
         }
 
-        totalAvgCost /= parameters->files.size();
-        totalBestCost /= parameters->files.size();
-        totalTime /= parameters->files.size();
+//        totalAvgCost /= parameters->files.size();
+//        totalBestCost /= parameters->files.size();
+//        totalTime /= parameters->files.size();
 
-        totalImprovPrim /= parameters->files.size();
-        totalImprovSec /= parameters->files.size();
+//        totalImprovPrim /= parameters->files.size();
+//        totalImprovSec /= parameters->files.size();
 
         // Write average result to solution file
-        outputFile.open(parameters->solutionPath, ofstream::out | ofstream::app);
-        outputFile << totalBestCost << "," << totalAvgCost << ","  << totalTime << endl;
-        outputFile.close();
+//        outputFile.open(parameters->solutionPath, ofstream::out | ofstream::app);
+//        outputFile << totalBestCost << "," << totalAvgCost << ","  << totalTime << endl;
+//        outputFile.close();
 
         delete parameters;
 

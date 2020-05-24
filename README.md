@@ -6,8 +6,12 @@ To compile, run:
 
 To execute, run:
 
-* ./HGS_MTSP {instances_path} {instances_prefix} {solution_path} {seed} {number_of_individuals} {maximum_number_of_individuals} {number_elite_individuals} {number_close_individuals} {maximum_iterations_without_improvement_diversify}
+* ./HGS_SSP {instance_path} {instance_name} {solution_path} {seed}
 
-For example, to run the first set of instances of Crama et al.:
+For example, to run the first instance of Crama et al.:
 
-* ./HGS_MTSP Instances/Crama/Tabela1 s1 solutions.txt 1 20 40 10 3 1000
+* ./HGS_SSP Instances/Crama/Tabela1 s1n001 solutions.txt 1
+
+The output will be in the form:
+
+* {best_solution},{CPU time}

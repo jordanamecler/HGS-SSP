@@ -15,10 +15,11 @@
 #include "Parameters.h"
 
 void Parameters::setMethodParams() {
-//    populationSize = 20;
-//    maxPopulationSize = 20;
-//    numberElite = 10;
-//    numberCloseIndividuals = 5;
+    populationSize = 20;
+    maxPopulationSize = 40;
+    numberElite = 10;
+    numberCloseIndividuals = 3;
+    maxDiversify = 1000;
     terminate = false;
 }
 
@@ -133,11 +134,11 @@ Parameters::Parameters(int seed, string instancesPaths, string instancesNames, s
     this->instancesPaths = instancesPaths;
     this->instancesNames = instancesNames;
     this->solutionPath = solutionPath;
-    this->populationSize = populationSize;
-    this->maxPopulationSize = maxPopulationSize;
-    this->numberElite = numberElite;
-    this->numberCloseIndividuals = numberCloseIndividuals;
-    this->maxDiversify = maxDiversify;
+//    this->populationSize = populationSize;
+//    this->maxPopulationSize = maxPopulationSize;
+//    this->numberElite = numberElite;
+//    this->numberCloseIndividuals = numberCloseIndividuals;
+//    this->maxDiversify = maxDiversify;
     this->seed = seed;
     if (seed == 0) // using the time to generate a seed when seed = 0
         srand((unsigned int)time(nullptr));

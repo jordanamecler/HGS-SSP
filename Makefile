@@ -1,4 +1,4 @@
-PROG = HGS_MTSP
+PROG = HGS_SSP
 CC = g++
 CPPFLAGS = -std=c++11 -O3
 OBJS = main.o Population.o Parameters.o LocalSearch.o Individual.o Genetic.o CommandLine.o
