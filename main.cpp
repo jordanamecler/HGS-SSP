@@ -98,7 +98,7 @@ int main(int argc, char* argv[]) {
 
             // Write result to solution file
             outputFile.open(parameters->solutionPath, ofstream::out | ofstream::app);
-            outputFile << parameters->numJobs << "," << parameters->numTools << "," << parameters->maxCapacity << "," << parameters->files.size() << "," << parameters->populationSize << "," << parameters->maxPopulationSize << "," << parameters->numberElite << "," << parameters->numberCloseIndividuals << "," << parameters->maxDiversify  << "," << bestCost << ","  << averageCost << "," << averageTime << "," << parameters->nbIter << "," << parameters->improvesPrimary << "," << parameters->improvesSecondary << endl;
+            outputFile << bestCost << ","  << averageCost << "," << averageTime << endl;
             outputFile.close();
         }
 
@@ -111,7 +111,7 @@ int main(int argc, char* argv[]) {
 
         // Write average result to solution file
         outputFile.open(parameters->solutionPath, ofstream::out | ofstream::app);
-        outputFile << parameters->numJobs << "," << parameters->numTools << "," << parameters->maxCapacity << "," << parameters->files.size() << "," << parameters->populationSize << "," << parameters->maxPopulationSize << "," << parameters->numberElite << "," << parameters->numberCloseIndividuals << "," << parameters->maxDiversify << "," << totalBestCost << "," << totalAvgCost << ","  << totalTime << ","  << totalImprovPrim << ","  << totalImprovSec << endl;
+        outputFile << totalBestCost << "," << totalAvgCost << ","  << totalTime << endl;
         outputFile.close();
 
         delete parameters;

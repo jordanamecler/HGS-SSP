@@ -99,7 +99,7 @@ void Parameters::readFile(const string &file) {
     if (inFile.good()) {
         string sLine;
         getline(inFile, sLine);
-        if (file.find("Laporte") != string::npos) {
+        if (file.find("Yanasse") != string::npos) {
             istringstream iss(sLine);
             vector<string> tokens{(istream_iterator<string>(iss)), istream_iterator<string>() };
             numJobs = (unsigned int)stoi(tokens[0]);
