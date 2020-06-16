@@ -14,4 +14,4 @@ For example, to run the first instance of Crama et al.:
 
 The output will be in the form:
 
-* {best_solution},{CPU time}
+* {best_solution_found},{CPU time}
