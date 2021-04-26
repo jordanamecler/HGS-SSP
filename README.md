@@ -1,5 +1,8 @@
 # HGS-SSP
 
+This work was published in one of the best journals in the area of operations research, [Computers & Operations Research](https://www.journals.elsevier.com/computers-and-operations-research).  
+The paper is available in <https://www.sciencedirect.com/science/article/abs/pii/S0305054820302707>.
+
 To compile, run:
 
 * make
